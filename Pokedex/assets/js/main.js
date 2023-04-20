@@ -1,17 +1,17 @@
-const criarCardsCurso = (poke) => {
+const criarPokemon = (poke) => {
 
     const pokemon = document.createElement('li')
     pokemon.classList.add('pokemon')
 
-    const number = document.createElement('span')
-    number.classList.add('number')
-    number.textContent = 00
+    // const number = document.createElement('span')
+    // number.classList.add('number')
+    // number.textContent = 00
 
     const name = document.createElement('span')
     name.classList.add('name')
     name.textContent = poke.name
 
-    pokemon.append(number, name)
+    pokemon.append(name)
 
     return pokemon
 
@@ -27,15 +27,13 @@ const carregarPokemon = async() => {
     let data = await response.json()
     let pokemon = await data.results
 
-    console.log(pokemon);
+    console.log(url);
 
+    const pokemons = document.getElementById('pokemons')
 
-    const buttons = document.getElementById('boxs')
+    const pokes = pokemon.map(criarPokemon)
 
-    const courses = cursos.map(criarCardsCurso)
-
-    buttons.replaceChildren(...courses)
+    pokemons.replaceChildren(...pokes)
 }
 
 carregarPokemon()
-console.log('Sucesso!')

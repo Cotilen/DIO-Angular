@@ -1,4 +1,4 @@
-.pokemons {
+#pokemons {
     display: grid;
     grid-template-columns: 1fr;
     margin: 0;
@@ -55,19 +55,19 @@
 }
 
 @media screen and (min-width: 380px) {
-    .pokemons {
+    #pokemons {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media screen and (min-width: 576px) {
-    .pokemons {
+    #pokemons {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 @media screen and (min-width: 992px) {
-    .pokemons {
+    #pokemons {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
