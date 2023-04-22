@@ -54,6 +54,18 @@
     height: 70px;
 }
 
+.glass {
+    background-color: green;
+}
+
+.fire {
+    background-color: red;
+}
+
+.water {
+    background-color: blue;
+}
+
 @media screen and (min-width: 380px) {
     #pokemons {
         grid-template-columns: 1fr 1fr;
