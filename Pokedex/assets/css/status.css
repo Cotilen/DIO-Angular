@@ -1,0 +1,43 @@
+.status-page {
+    margin: 1rem;
+    display: none;
+    gap: .5rem;
+}
+
+.chart {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    width: 250px;
+    height: 200px;
+    gap: 10px;
+    margin: 20px;
+}
+
+.status-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px;
+    height: 200px;
+    gap: 10px;
+    margin: 20px;
+}
+
+.status-value {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    gap: 10px;
+    margin: 20px;
+}
+
+.bar {
+    height: 20px;
+    border-radius: 1rem;
+    background-color: #2196F3;
+    margin: 0 10px;
+}

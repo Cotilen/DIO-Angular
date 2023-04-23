@@ -1,0 +1,29 @@
+.breeding {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 2rem;
+    font-weight: 600;
+}
+
+.sub-about,
+.breeding-info {
+    display: flex;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.names {
+    color: gray;
+}
+
+.names,
+.information {
+    line-height: 2rem;
+}
+
+.categories {
+    justify-content: space-evenly;
+    display: flex;
+    font-weight: 500;
+    padding-right: 1rem;
+}

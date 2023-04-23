@@ -1,25 +1,41 @@
-function pokemonToLi(pokemon) {
+const pokemonOl = document.getElementById('pokemons')
+const loadMoreButton = document.getElementById('loadMoreButton')
 
-    const name = pokemon.name[0].toUpperCase() + pokemon.name.substring(1).toLowerCase()
-    return `
+const maxRecords = 251
+const limit = 5
+let offset = 0
+
+function loadPokemonItens(offset, limit) {
+
+    pokeApi.getPokemons(offset, limit)
+        .then((pokemons = []) => pokemonOl.innerHTML += pokemons.map((pokemon) => `
     <li class="pokemon ${pokemon.type}">
     <span class="number">#${pokemon.number}</span>
-    <span class="name">${name}</span>
+    <span class="name">${pokemon.name}</span>
 
     <div class="detail">
         <ol class="types">
-        ${pokemon.types.map((type) => `<li class="type">${type}</li>`).join('')}
+        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
         </ol>
 
-        <img src=${pokemon.photo} alt="${name}">
+        <img src=${pokemon.photo} alt="${pokemon.name}">
     </div>
 </li>
-         `
-
+    `).join(''))
 }
 
-const pokemonOl = document.getElementById('pokemons')
+loadPokemonItens(offset, limit)
 
+loadMoreButton.addEventListener('click',() =>{
+    offset += limit
 
-pokeApi.getPokemons()
-    .then((pokemons = []) => pokemonOl.innerHTML = pokemons.map(pokemonToLi).join(''))
+    const qtRecord = offset + limit
+
+    if(qtRecord >= maxRecords){
+        const newLimit = maxRecords - offset
+        loadPokemonItens(offset,newLimit)
+
+        loadMoreButton.parentElement.remove(loadMoreButton)
+    }else
+    loadPokemonItens(offset,limit)
+})
