@@ -5,6 +5,7 @@ const maxRecords = 251
 const limit = 8
 let offset = 0
 
+//Função para criar o card dos pokemons
 function loadPokemonItens(offset, limit) {
 
     pokeApi.getPokemons(offset, limit)
@@ -26,6 +27,8 @@ function loadPokemonItens(offset, limit) {
 
 loadPokemonItens(offset, limit)
 
+
+//Evento de click para carregar mais pokemons
 loadMoreButton.addEventListener('click',() =>{
     offset += limit
 
@@ -39,3 +42,4 @@ loadMoreButton.addEventListener('click',() =>{
     }else
     loadPokemonItens(offset,limit)
 })
+

@@ -41,3 +41,17 @@ Promise.all([
 ]).then((results) => {
     console.log(results);
 })
+
+//Função para enviar os dados para a segunda tela do detalhamento do Pokemon
+
+pokeApi.getDetailUniquePokemon = (id) =>{
+
+    let url = `https://pokeapi.co/api/v2/pokemon/1`
+
+    return fetch(url)
+    .then((response) => response.json())
+    .then((jsonBody) => jsonBody.results)
+    .then((pokemons) => pokemons.map(pokeApi.getPokemonsDetails))
+    .then((detailRequests) => Promise.all(detailRequests))
+    .then((pokemonsDetails) => pokemonsDetails)
+}
