@@ -25,6 +25,7 @@
 
 .title span {
     font-size: 2rem;
+    text-transform: capitalize;
 }
 
 .img {

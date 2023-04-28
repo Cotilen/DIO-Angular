@@ -1,25 +1,39 @@
+//Função para fazer o fetch 
+const fetchPokeDetail = async function(id) {
 
-const id = 1
-const pokemon = document.getElementById('pokemon')
+        let url = `https://pokeapi.co/api/v2/pokemon/${id}`
 
-const apiToPokeDetail = function(id){
+        let response = await fetch(url)
+        let data = await response.json()
 
-    pokeApi.getPokemonsDetails(id)
-    .then((pokes) => pokemon.innerHTML =+ pokes.map((pokeDetail) => `
-    <div class="title ">
-        <span>${pokeDetail.name}</span>
-        <p>${pokeDetail.number}</p>
-    </div>
-    <div class="img">
-        <img src=${pokeDetail.photo} alt="${pokeDetail.name}">
-    </div>
-    <ol class="types">
-        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+        const details = () => {
+                const pokemon = document.getElementById('pokemon').innerHTML = `
+        <div class="title">
+            <span>${data.name}</span>
+            <p>#${data.id}</p>
+        </div>
+        <div class="img">
+            <img src=${data.sprites.other.dream_world.front_default} alt="${data.name}">
+        </div>
+        <ol class="types">
+        ${data.types.map((type) => `<li class="type ${type.type.name}">${type.type.name}</li>`).join('')}
         </ol>
+    `
+        }
 
-    `).join(''))
+        const about = () =>{
+
+            // let urlAbout = `https://pokeapi.co/api/v2/pokemon-species/${id}`
+
+            // let responseAbout = await fetch(urlAbout)
+            // let dataAbout = await responseAbout.json()
 
 
+        }
+
+
+details()
+        
 }
 
-apiToPokeDetail(1)
+fetchPokeDetail(1)
